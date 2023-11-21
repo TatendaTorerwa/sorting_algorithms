@@ -28,7 +28,10 @@ void counting_sort(int *array, size_t size)
 		return;
 	count_b = (int *)malloc(size * sizeof(int));
 	if (count_b == NULL)
+	{
+		free(count);
 		return;
+	}
 	for (i = 0; i <= (size_t)max_element; i++)
 		count[i] = 0;
 	for (i = 0; i < size; i++)
