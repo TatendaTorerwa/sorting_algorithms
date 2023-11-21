@@ -39,7 +39,7 @@ void counting_sort(int *array, size_t size)
 	for (i = 1; i <= (size_t)max_element; i++)
 		count[i] = count[i] + count[i - 1];
 	print_array(count, max_element + 1);
-	for (i = size - 1; i != (size_t) - 1; i--)
+	for (i = size - 1; i != (size_t) -1; i--)
 		count_b[--count[array[i]]] = array[i];
 	for (i = 0; i < size; i++)
 		array[i] = count_b[i];
