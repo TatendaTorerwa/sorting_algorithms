@@ -29,6 +29,9 @@ void merge(int *subarray, size_t lower_bound, size_t mid, size_t upper_bound)
 	if (array_b == NULL)
 		return;
 
+	print_array(subarray + lower_bound, mid - lower_bound + 1);
+	print_array(subarray + mid + 1, upper_bound - mid);
+
 	while (i <= mid && j <= upper_bound)
 	{
 		if (subarray[i] <= subarray[j])
@@ -66,7 +69,13 @@ void merge(int *subarray, size_t lower_bound, size_t mid, size_t upper_bound)
 	{
 		subarray[k] = array_b[k];
 	}
-	print_array(subarray + lower_bound, upper_bound - lower_bound + 1);
+    printf("Merging...\n[left]: ");
+    print_array(subarray + lower_bound, upper_bound - lower_bound + 1);
+    printf("[right]: ");
+    print_array(subarray + mid + 1, upper_bound - mid);
+    printf("[Done]: ");
+    print_array(subarray + lower_bound, upper_bound - lower_bound + 1);
+
 
 	free(array_b);
 }
