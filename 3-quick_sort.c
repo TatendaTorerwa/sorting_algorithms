@@ -37,7 +37,7 @@ int lomuto_partition(int *array, size_t size,  int start, int end)
 
 	for (j = start; j < end; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			p++;
 			swap(&array[p], &array[j]);
@@ -59,6 +59,8 @@ int lomuto_partition(int *array, size_t size,  int start, int end)
  *
  * @upper_bound: The higher index of the current subarray or partition.
  *
+ * @size: The size of the array.
+ *
  * Description: Use the lomuto partition scheme.
  */
 
@@ -67,6 +69,7 @@ void quick_sorting(int *array, size_t size, int lower_bound, int upper_bound)
 	if (lower_bound < upper_bound)
 	{
 		int loc = lomuto_partition(array, size, lower_bound, upper_bound);
+
 		quick_sorting(array, size, lower_bound, loc - 1);
 		quick_sorting(array, size, loc + 1, upper_bound);
 	}
